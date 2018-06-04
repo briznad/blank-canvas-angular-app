@@ -1,0 +1,95 @@
+@import 'settings';
+
+/* mixins */
+
+// parseInt function to strip units/return just numbers
+@function parseInt($n) {
+    @return $n / ($n * 0 + 1);
+}
+
+// em's mixin
+@function em($targetSize, $context: $font-base-size) {
+    $value: (parseInt($targetSize) / parseInt($context));
+
+    @return #{$value}em;
+}
+
+// media query mixins
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin x-sm {
+	@media (min-width: #{$breakpoint-x-sm}) {
+    @content;
+  }
+}
+
+@mixin max-x-sm {
+  @media (max-width: #{$breakpoint-x-sm}) {
+    @content;
+  }
+}
+
+
+@mixin sm {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin max-sm {
+  @media (min-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+
+@mixin md {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin max-md {
+  @media (min-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+
+@mixin lg {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin max-lg {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+
+@mixin x-lg {
+  @media (min-width: #{$breakpoint-x-lg}) {
+    @content;
+  }
+}
+
+@mixin max-x-lg {
+  @media (min-width: #{$breakpoint-x-lg}) {
+    @content;
+  }
+}
+
+/* /mixins */

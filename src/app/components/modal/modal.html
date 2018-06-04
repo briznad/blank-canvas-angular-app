@@ -1,0 +1,20 @@
+<div
+	(click)="onContainerClicked($event)"
+	class="modal"
+	tabindex="{{ visible ? '0' : '-1' }}"
+  [ngStyle]="{ 'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0 }"
+>
+  <div class="modal-dialog">
+  	<h2 class="modal-header">
+      <ng-content select=".modal-header-content"></ng-content>
+    </h2>
+
+    <div class="modal-body">
+      <ng-content select=".modal-body-content"></ng-content>
+    </div>
+
+    <footer class="modal-footer">
+      <ng-content select=".modal-footer-content"></ng-content>
+    </footer>
+  </div>
+</div>

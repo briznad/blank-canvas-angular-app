@@ -1,0 +1,29 @@
+@import 'helpers/helper';
+
+:host {
+	display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header-bar,
+main,
+footer {
+	@extend %minimum-container-x-sm;
+	@extend %constrained-container-md;
+
+	width: 100%;
+}
+
+header-bar,
+footer {
+	flex: none;
+}
+
+main {
+	flex: 1 0 auto;
+	padding: 20px 10px;
+	background-color: white;
+}
+
+footer {}

@@ -1,0 +1,94 @@
+@import 'colors';
+@import 'settings';
+
+/* helper styles */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  width: auto;
+  overflow-x: hidden;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1em;
+  font-family: $font-normal;
+  font-weight: 300;
+  color: $color-text;
+  background-color: $asbestos;
+}
+
+h2 {
+  margin-bottom: 0.5em;
+}
+
+a,
+button.link-style {
+  text-decoration: none;
+  color: $color-black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button.link-style {
+  border: none;
+  outline: none;
+  background: none;
+  text-align: left;
+
+  font-size: 1em;
+  font-family: $font-normal;
+  font-weight: 300;
+  color: $color-text;
+  cursor: pointer;
+}
+
+p {
+  margin-bottom: 1em;
+  line-height: 1.5em;
+  color: $color-text;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* /helper styles */
+
+/* active menu style */
+
+header-bar {
+  &.menu-active {
+    .menu-wrapper {
+      transform: translateX(100%);
+    }
+
+    + main {
+      transform: translateX(165px);
+
+      > * {
+        display: block;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &.--animate {
+    .menu-wrapper,
+    + main {
+      transition: transform 250ms ease-in-out;
+    }
+  }
+}
+
+/* /active menu style */

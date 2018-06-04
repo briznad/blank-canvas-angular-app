@@ -1,0 +1,221 @@
+@import 'colors';
+
+%icon {
+  &:before {
+    line-height: 1em;
+    font-family: 'fontello';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+  }
+}
+
+%icon-after {
+  &:after {
+    line-height: 1em;
+    font-family: 'fontello';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+  }
+}
+
+[class*="icon-"] {
+  @extend %icon;
+}
+
+%icon-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  min-width: 38px;
+  text-align: center;
+  line-height: 34px;
+  cursor: pointer;
+}
+
+[class*="icon-btn-"] {
+  @extend %icon-btn;
+}
+
+%icon-trash-empty {
+  &:before { content: '\e800'; } // ''
+}
+
+.icon-btn-delete {
+  @extend %icon-trash-empty;
+
+  background-color: transparent;
+  border-color: transparent;
+}
+
+
+%icon-exchange {
+  &:before { content: '\e801'; } // ''
+}
+
+.icon-btn-sort {
+  @extend %icon-exchange;
+}
+
+
+%icon-share {
+  &:before { content: '\e802'; } // ''
+}
+
+.icon-btn-share {
+  @extend %icon-share;
+
+  background-color: $sun_flower;
+  border-color: $sun_flower;
+  color: white;
+}
+
+
+%icon-plus {
+  &:before { content: '\e803'; } // ''
+}
+
+.icon-btn-add {
+  @extend %icon-plus;
+
+  background-color: $peter_river;
+  border-color: $peter_river;
+  color: white;
+
+  &:active {
+    background-color: $belize_hole;
+    border-color: $belize_hole;
+  }
+}
+
+
+%icon-list {
+  &:before { content: '\e805'; } // ''
+}
+
+.icon-btn-list {
+  @extend %icon-list;
+}
+
+
+%icon-list-add {
+  &:before { content: '\e806'; } // ''
+}
+
+.icon-btn-bulk-add {
+  @extend %icon-list-add;
+
+  background-color: $amethyst;
+  border-color: $amethyst;
+  color: white;
+}
+
+
+%icon-check {
+  &:before { content: '\e807'; } // ''
+}
+
+.icon-btn-save {
+  @extend %icon-check;
+
+  background-color: $nephritis;
+  border-color: $nephritis;
+  color: white;
+}
+
+
+%icon-x {
+  &:before { content: '\e808'; } // ''
+}
+
+.icon-btn-cancel {
+  @extend %icon-x;
+
+  background-color: $asbestos;
+  border-color: $asbestos;
+  color: white;
+}
+
+
+%icon-user-avatar {
+  &:before { content: '\e809'; } // ''
+}
+
+.icon-user-avatar {
+  @extend %icon-user-avatar;
+}
+
+
+%icon-pencil {
+  &:before { content: '\e80a'; } // ''
+}
+
+.icon-btn-edit {
+  @extend %icon-pencil;
+
+  background-color: transparent;
+  border-color: transparent;
+  color: $carrot;
+}
+
+
+%icon-stack {
+  &:before { content: '\e80d'; } // ''
+}
+
+.icon-btn-combine {
+  @extend %icon-stack;
+
+  background-color: $pumpkin;
+  border-color: $pumpkin;
+  color: white;
+}
+
+
+%icon-menu {
+  &:before { content: '\f0c9'; } // ''
+}
+
+.icon-btn-menu {
+  @extend %icon-menu;
+}
+
+
+%icon-convert {
+  &:before { content: '\e80b'; } // ''
+}
+
+.icon-btn-convert {
+  @extend %icon-convert;
+}
+
+
+%icon-arrow-up {
+  &:before { content: '\e80c'; } // ''
+}
+
+%icon-arrow-down {
+  &:before { content: '\e804'; } // ''
+}
+
+%icon-after-arrow-up {
+  &:after { content: '\e80c'; } // ''
+}
+
+%icon-after-arrow-down {
+  &:after { content: '\e804'; } // ''
+}
+
+
+%icon-after-facebook {
+  &:after { content: '\f09a'; } // ''
+}

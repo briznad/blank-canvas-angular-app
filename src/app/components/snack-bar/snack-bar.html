@@ -1,0 +1,17 @@
+<aside
+  *ngIf="!!(message || emphasisMessage)"
+  [class.visible]="visible"
+  [class.visibleAnimate]="visibleAnimate"
+  [class.--action]="!!action"
+>
+  <span class="message">
+    <span *ngIf="!!message">{{ message }} </span>
+    <i *ngIf="!!emphasisMessage">{{ emphasisMessage }}</i>
+  </span>
+
+  <button
+    *ngIf="!!action"
+    type="button"
+    (click)="doAction()"
+  >{{ action }}</button>
+</aside>

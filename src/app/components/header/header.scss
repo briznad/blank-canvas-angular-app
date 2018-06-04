@@ -1,0 +1,152 @@
+@import 'helpers/helper';
+
+:host {
+	@extend %horizontal-content;
+
+	flex-wrap: nowrap;
+	position: relative;
+	background-color: $mint;
+
+	@include md {
+		&:before,
+		&:after {
+			content: '';
+			width: calc((100vw - #{$breakpoint-md}) / 2);
+			height: 100%;
+			position: absolute;
+			top: 0;
+			background-color: inherit;
+		}
+
+		&:before {
+			right: 100%;
+		}
+
+		&:after {
+			left: 100%;
+		}
+	}
+}
+
+.sign-in-up-wrapper {
+	margin-right: 10px;
+	text-align: right;
+}
+
+// button style for sign up & sign in
+// but only for sign in when on sign up page
+.sign-up,
+.sign-in {
+	display: inline-block;
+	line-height: 35px;
+	margin: 12px 0 8px;
+	padding-left: 1em;
+	padding-right: 1em;
+	white-space: nowrap;
+	border-radius: 5px;
+	color: white;
+	font-weight: 700;
+
+	&.active {
+		display: none;
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.sign-up {
+	background-color: $wisteria;
+}
+
+.sign-in {
+	background-color: $peter_river;
+	display: none;
+
+	.active + & {
+		display: inline-block;
+	}
+}
+
+h1 {
+	flex: 1;
+	height: 55px;
+	line-height: 55px;
+	margin: 0;
+  white-space: nowrap;
+	text-align: center;
+	color: white;
+	font-family: $font-logo;
+	font-size: 38px;
+
+	&.signed-out {
+		text-align: left;
+		padding-left: 10px;
+	  padding-right: 10px;
+	}
+
+	&:after {
+		display: inline-block;
+		position: relative;
+		left: -20px;
+		top: -4px;
+		transform: rotate(52deg);
+		font-family: $font-normal;
+		font-size: 18px;
+		font-weight: 1000;
+		text-shadow:
+			white -1px 0px 2px,
+			white 1px 0px 2px,
+			white 0px 1px 2px,
+			white 0px -1px 2px;
+	}
+
+	&.env-development:after {
+		content: 'DEV';
+		color: $sun_flower;
+	}
+
+	&.env-beta:after {
+		content: 'BETA';
+		color: $peter_river;
+	}
+}
+
+user-avatar {
+	min-width: 41px;
+	max-height: 41px;
+	margin-right: 10px;
+}
+
+.toggle-menu {
+	min-width: 64px;
+	line-height: 55px;
+	padding-left: 20px;
+  padding-right: 20px;
+	font-size: 1.75em;
+	border: none;
+	border-radius: 0;
+	color: white;
+
+	&,
+	&:active,
+	&:focus {
+		outline: none;
+	}
+}
+
+.menu-wrapper {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	right: 100%;
+	z-index: 1;
+}
+
+menu {
+	display: inline-block;
+	position: relative;
+	top: 55px;
+}

@@ -1,0 +1,441 @@
+@import 'settings';
+@import 'colors';
+@import 'icons';
+
+// visually hide elements for screen readers
+%visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px,1px,1px,1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.visually-hidden {
+  @extend %visually-hidden;
+}
+
+// visually hide text within elements for screen readers
+.visually-hidden-text {
+  text-indent: -10000px;
+}
+
+.inactive {
+  display: none !important;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+// clearfix
+%clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.clearfix {
+  @extend %clearfix;
+}
+
+.relative-container {
+  position: relative;
+}
+
+%ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// form input styles
+%input-focus {
+  &:focus,
+  &.focus {
+    border-color: rgba($peter-river, 0.75);
+    outline-color: rgba($peter-river, 0.75);
+    outline-style: solid;
+    outline-offset: 0px;
+    outline-width: 2px;
+  }
+}
+
+// CTA button styles
+%cta {
+  display: block;
+  padding: 0.75em;
+  border-radius: 0;
+  border: 1px solid rgba($peter-river, 0.75);
+  background-color: rgba($peter-river, 0.9);
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $color-white;
+
+  &:focus,
+  &:hover {
+    background-color: $peter-river;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @extend %input-focus;
+
+  &:active {
+    background-color: $midnight-blue;
+    border-color: $midnight-blue;
+    outline-color: $midnight-blue;
+  }
+}
+
+// content box
+%content-box {
+  background-color: $color-white;
+  border: 1px solid rgba($color-border-light, 0.5);
+}
+
+// non-standard input styling
+%input {
+  @extend %input-focus;
+  @extend %content-box;
+}
+
+// non-standard select styling
+%select {
+  @extend %input-focus;
+  @extend %content-box;
+
+  line-height: 1.75em;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0.5em;
+  padding-right: 1.35em;
+  cursor: pointer;
+
+  background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgLTI1NiAxNzkyIDE3OTIiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE0MTEuMyA4NDVxMCAyNi0xOSA0NWwtNDQ4IDQ0OHEtMTkgMTktNDUgMTl0LTQ1LTE5bC00NDgtNDQ4cS0xOS0xOS0xOS00NXQxOS00NXExOS0xOSA0NS0xOWg4OTZxMjYgMCA0NSAxOXQxOSA0NXptMC0zODRxMCAyNi0xOSA0NXQtNDUgMTloLTg5NnEtMjYgMC00NS0xOXQtMTktNDVxMC0yNiAxOS00NWw0NDgtNDQ4cTE5LTE5IDQ1LTE5dDQ1IDE5bDQ0OCA0NDhxMTkgMTkgMTkgNDV6Ii8+PC9zdmc+');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 1.2em;
+}
+
+// help to prevent 3D transforms
+%hide-backface-visibility {
+  backface-visibility: hidden;
+}
+
+// container styles
+%minimum-container-x-sm {
+  min-width: $breakpoint-x-sm;
+}
+
+%constrained-container-x-sm {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $breakpoint-x-sm;
+}
+
+%constrained-container-sm {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $breakpoint-sm;
+}
+
+%constrained-container-md {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $breakpoint-md;
+}
+
+// divider styles
+.divider,
+.--divider {
+  border-top: 1px solid $silver;
+  margin-top: 0.5em;
+  padding-top: 0.5em;
+
+  &.--dashed {
+    border-top-style: dashed;
+  }
+
+  &.--light {
+    border-top-color: rgba($silver, 0.5);
+  }
+
+  &.--compact {
+    margin-top: 0.25em;
+    padding-top: 0.25em;
+  }
+
+  &:not(.--first-shown):first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  &.--after {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+
+    border-bottom: 1px solid $silver;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+
+    &.--dashed {
+      border-bottom-style: dashed;
+    }
+
+    &.--light {
+      border-bottom-color: rgba($silver, 0.5);
+    }
+
+    &.--compact {
+      margin-bottom: 0.25em;
+      padding-bottom: 0.25em;
+    }
+
+    &:not(.--last-shown):last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+
+%or-divider {
+  margin: 0.75em 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: relative;
+
+  &:before,
+  &:after {
+    content : '';
+    width: 43%;
+    height: 1px;
+    background-color: rgba($silver, 0.5);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}
+
+.or-divider {
+  @extend %or-divider;
+}
+
+
+%faux-checkbox {
+  @extend %input-focus;
+  @extend %content-box;
+
+  position: relative;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+
+  &[disabled],
+  &.--disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  &.--disabled {
+    pointer-events: none;
+  }
+
+  &:before {
+    display: none;
+
+    @extend %icon;
+    @extend %icon-check;
+    position: absolute;
+    top: -5px;
+    left: 4px;
+    font-size: 24px;
+  }
+
+  &.--checked:before {
+    display: block;
+  }
+}
+
+.faux-checkbox {
+  @extend %faux-checkbox;
+}
+
+
+// select obfuscation
+// aka, hiding selects behind buttons
+.select-obfuscation {
+  display: inline-block;
+  position: relative;
+
+  &:before,
+  &:after,
+  .select-overlay {
+    display: inline-block;
+    pointer-events: none;
+  }
+
+  &.--distinct-overlay-element {
+    &:before,
+    &:after {
+      content: none;
+      display: none;
+    }
+  }
+
+  select {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+
+// inset input label text
+%inset-label-text {
+  @extend %content-box;
+
+  display: block;
+  position: relative;
+
+  .label-text,
+  input,
+  textarea {
+    font-size: 20px;
+  }
+
+  .label-text {
+    @extend %ellipsis;
+
+    max-width: calc(100% - 20px);
+    position: absolute;
+    top: 12.5px;
+    left: 11px;
+    color: $color-border-light;
+    pointer-events: none;
+    transition-property: font-size, top, left;
+    transition-duration: 175ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    border: none;
+    background-color: inherit;
+
+    &:focus,
+    &[required]:valid,
+    &[ng-reflect-model]:not([ng-reflect-model=""]) {
+      + .label-text {
+        font-size: 11px;
+        top: 5px;
+        left: 12px;
+      }
+    }
+  }
+
+  input,
+  &.--textarea {
+    @extend %input-focus;
+
+    padding-top: 17px;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+}
+
+
+// faux table
+.faux-table {}
+
+.faux-table-header-row,
+.faux-table-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.faux-table-cell,
+.faux-table-header-cell {
+  flex: 1;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.faux-table-header-cell {
+  font-weight: 400;
+}
+
+// horizontal content
+%horizontal-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .primary-content {
+    flex: 1;
+  }
+
+  .inline-buttons {
+    flex: 0;
+    white-space: nowrap;
+  }
+}
+
+
+%loading {
+  background-color: rgba(black, 0.6);
+  background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+PGNpcmNsZSB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4IDApIiBjeD0iMCIgY3k9IjE2IiByPSIwIj48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiB2YWx1ZXM9IjA7IDQ7IDA7IDAiIGR1cj0iMS4ycyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGJlZ2luPSIwIiBrZXl0aW1lcz0iMDswLjI7MC43OzEiIGtleVNwbGluZXM9IjAuMiAwLjIgMC40IDAuODswLjIgMC42IDAuNCAwLjg7MC4yIDAuNiAwLjQgMC44IiBjYWxjTW9kZT0ic3BsaW5lIiAvPjwvY2lyY2xlPjxjaXJjbGUgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTYgMCkiIGN4PSIwIiBjeT0iMTYiIHI9IjAiPjxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9InIiIHZhbHVlcz0iMDsgNDsgMDsgMCIgZHVyPSIxLjJzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgYmVnaW49IjAuMyIga2V5dGltZXM9IjA7MC4yOzAuNzsxIiBrZXlTcGxpbmVzPSIwLjIgMC4yIDAuNCAwLjg7MC4yIDAuNiAwLjQgMC44OzAuMiAwLjYgMC40IDAuOCIgY2FsY01vZGU9InNwbGluZSIgLz48L2NpcmNsZT48Y2lyY2xlIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0IDApIiBjeD0iMCIgY3k9IjE2IiByPSIwIj48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiB2YWx1ZXM9IjA7IDQ7IDA7IDAiIGR1cj0iMS4ycyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGJlZ2luPSIwLjYiIGtleXRpbWVzPSIwOzAuMjswLjc7MSIga2V5U3BsaW5lcz0iMC4yIDAuMiAwLjQgMC44OzAuMiAwLjYgMC40IDAuODswLjIgMC42IDAuNCAwLjgiIGNhbGNNb2RlPSJzcGxpbmUiIC8+PC9jaXJjbGU+PC9zdmc+');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: 50%;
+}

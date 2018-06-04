@@ -1,0 +1,62 @@
+@import 'helpers/helper';
+
+nav {
+	display: inline-block;
+	min-width: 165px;
+	padding-top: 0.5em;
+}
+
+.menu-item {
+	display: block;
+	white-space: nowrap;
+
+	a,
+	button {
+		display: block;
+		width: 100%;
+		padding: 0.5em 1em;
+		color: white;
+		font-weight: bold;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		&.active {
+			font-weight: 400;
+			cursor: default;
+			// don't allow clicks on "active" links (links to the current page) activate anything
+			pointer-events: none;
+
+			&:before {
+				content: '\25ba';
+				padding-right: 0.25em;
+				vertical-align: middle;
+				font-size: 75%;
+				opacity: 0.95;
+			}
+		}
+	}
+
+	.logout {
+		font-weight: 400;
+	}
+}
+
+.group-divider {
+	margin-top: 6px;
+
+	a,
+	button {
+		position: relative;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: -4px;
+			left: 1em;
+			width: calc(100% - 2em);
+			border-top: 2px solid rgba(255, 255, 255, 0.7);
+		}
+	}
+}

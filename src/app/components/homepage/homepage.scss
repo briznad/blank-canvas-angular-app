@@ -1,0 +1,42 @@
+@import 'helpers/helper';
+
+h3 {
+  margin-bottom: 0.25em;
+}
+
+.sign-in-up-wrapper {
+	@extend %constrained-container-x-sm;
+
+	padding: 0 30px;
+}
+
+// button style for sign up & sign in
+.sign-up,
+.sign-in {
+	display: block;
+	line-height: 45px;
+	margin-bottom: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-width: 2px;
+	border-style: solid;
+	text-align: center;
+	white-space: nowrap;
+	border-radius: 5px;
+	color: white;
+	font-weight: 700;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.sign-up {
+	background-color: $wisteria;
+	border-color: $wisteria;
+}
+
+.sign-in {
+	background-color: $peter_river;
+	border-color: $peter_river;
+}

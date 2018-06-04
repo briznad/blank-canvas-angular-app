@@ -1,0 +1,51 @@
+@import 'helpers/helper';
+
+aside {
+    display: none;
+    width: 100%;
+    max-width: calc(#{$breakpoint-sm} + 4em);
+    padding: 1em 1.5em;
+    position: fixed;
+    bottom: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background-color: $wet_asphalt;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    transition: bottom 200ms ease-in-out;
+
+    &.--action {
+        padding-right: 90px;
+    }
+
+    &.visible {
+        display: block;
+    }
+
+    &.visibleAnimate {
+        bottom: 0;
+    }
+}
+
+.message {
+    @extend %ellipsis;
+
+    display: block;
+}
+
+button {
+    padding: 1em;
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    outline: none;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
